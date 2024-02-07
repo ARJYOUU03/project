@@ -25,11 +25,18 @@ class Programme(models.Model):
     grad_level = models.ForeignKey(Exam,on_delete=models.CASCADE)
     dept_id = models.ForeignKey(Department,on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.pgm_name
+
 class Course(models.Model):
     course_id = models.IntegerField()
     course_title = models.CharField(max_length=50)
     dept=models.ForeignKey(Department,on_delete=models.CASCADE)
-    Syllabus_year = models.IntegerField() 
+    Syllabus_year = models.IntegerField()
+    course_code= models.IntegerField()
+
+    def __str__(self):
+        return self.course_title
 
 class ExamTimeTable(models.Model):
     exam=models.ForeignKey(Exam,on_delete=models.CASCADE)
@@ -39,5 +46,39 @@ class ExamTimeTable(models.Model):
     time_to = models.DateTimeField()
     course_id = models.ForeignKey(Course,models.CASCADE)
 
+    def __str__(self):
+        return self.exam
 
+
+class teacherTable(models.Model):
+    teacher_id=models.IntegerField()
+    dept_id=models.IntegerField()
+    name=models.CharField(max_length=40)
+    designation=models.CharField(max_length=40)
+
+    def __str__(self):
+        return self.name
+
+class room(models.Model):
+    room_id=models.IntegerField()
+    room_no=models.IntegerField()
+    no_of_coloums=models.IntegerField()
+    location=models.CharField(max_length=40)
+
+    def __str__(self):
+        return self.room_id
+
+class dutyAllotment(models.Model):
+    teacher_id=models.ForeignKey(teacherTable,on_delete=models.CASCADE)
+    exam_id=models.ForeignKey(Exam,on_delete=models.CASCADE)
+    date=models.DateField()
+    room_id=models.ForeignKey(room,on_delete=models.CASCADE)
     
+
+
+
+class preferTable(models.Model):
+    teacher_id=models.IntegerField()
+    exam_id=models.IntegerField()
+    date=models.DateField()
+    room_id=models.IntegerField()
