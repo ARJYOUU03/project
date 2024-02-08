@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        body {
+            text-align: center;
+        }
+
+        a {
+            display: block;
+            margin: 10px 0;
+            text-decoration: none;
+            color: #007bff; /* Set your preferred link color */
+        }
+    </style>
+</head>
+<body>
+    <h1>WELCOME</h1>
+    <a href="{% url 'exam' %}">Exam Page</a><br>
+    <a href="{% url 'timetable'%}">Time table</a><br>
+    <a href="{% url 'dutyAllotment'%}">Duty Allotment</a><br>
+    <a href="{% url 'preferTable'%}">Prefer Table</a>
+</body>
+</html>

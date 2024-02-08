@@ -6,11 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <form method="post">
-        {% csrf_token %}
+    <form method="POST">
+        {% csrf_token%}
         {{form.as_p}}
         <input type="submit">
     </form>
-    <a href="{% url 'hello'%}">go</a>
+    <a href="{%url 'hello'%}">home</a>
 </body>
 </html>
