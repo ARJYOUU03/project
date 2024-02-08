@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Exam
+from .models import Exam,ExamTimeTable
+from django.views.generic.edit import CreateView
+from django.urls import reverse
  
 # Create your views here.
 def home(request):
@@ -19,4 +21,10 @@ def addexam(request):
         return HttpResponse('Submitted')
     return render(request,'exam/formexam.html')
 
+class ExamTimeTableView(CreateView):
+    model = ExamTimeTable
+    fields = "__all__"
 
+    def get_success_url(self):
+        return reverse('ExamTimeTable')
+    
