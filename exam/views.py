@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Exam,ExamTimeTable,teacherTable,dutyAllotment,preferTable
+from .models import *
 from django.views.generic.edit import CreateView
 from django.urls import reverse
  
@@ -45,3 +45,12 @@ class preferTableView(CreateView):
 
     def get_success_url(self):
         return reverse('preferTable')
+    
+class CourseTableView(CreateView):
+    model = Course
+    fields = "__all__"
+
+    def get_success_url(self):
+        return reverse('Course')
+
+
