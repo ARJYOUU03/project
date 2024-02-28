@@ -33,7 +33,7 @@ class Course(models.Model):
     course_title = models.CharField(max_length=50)
     dept=models.ForeignKey(Department,on_delete=models.CASCADE)
     Syllabus_year = models.IntegerField()
-    course_code= models.IntegerField()
+    course_code= models.CharField(max_length=20)
 
     def __str__(self):
         return self.course_title
