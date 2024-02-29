@@ -75,8 +75,6 @@ class dutyAllotment(models.Model):
     room_id=models.ForeignKey(room,on_delete=models.CASCADE)
     
 
-
-
 class preferTable(models.Model):
     teacher_id=models.IntegerField()
     exam_id=models.IntegerField()

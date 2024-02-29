@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examination Duty Allotment - Chief</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        select, button {
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Examination Duty Allotment - Chief</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Exam ID</th>
+                <th>Semester</th>
+                <th>Year</th>
+                <th>Month</th>
+                <th>Graduation Level</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for exam in exams %}
+                <tr>
+                    <td>{{ exam.exam_id }}</td>
+                    <td>{{ exam.sem }}</td>
+                    <td>{{ exam.year }}</td>
+                    <td>{{ exam.month }}</td>
+                    <td>{{ exam.grad_level }}</td>
+                    <td><button type="submit">Assign Duty</button></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+
+    <script>
+        function assignDuty(examId) {
+            // Implement the logic to assign duty for the selected exam
+            console.log('Assign duty for exam with ID: ' + examId);
+        }
+    </script>
+
+</body>
+</html>

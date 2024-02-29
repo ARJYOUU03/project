@@ -36,7 +36,7 @@ class ExamView(CreateView):
     fields = "__all__"
 
     def get_success_url(self):
-        return reverse('Exam')
+        return reverse('hello')
 
 
 class ExamTimeTableView(CreateView):
@@ -74,5 +74,11 @@ class CourseTableView(CreateView):
 
     def get_success_url(self):
         return reverse('Course')
+
+
+def cheifpage(request):
+    exams = Exam.objects.all()
+    print(list(exams))
+    return render(request, 'exam/cpage.html', {'exams': exams})
 
 
