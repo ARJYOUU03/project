@@ -39,7 +39,7 @@
             margin-bottom: 8px;
         }
 
-        select, button {
+        select, button, input[type="date"] {
             padding: 8px;
             margin-bottom: 10px;
         }
@@ -55,6 +55,7 @@
                 <th>Year</th>
                 <th>Month</th>
                 <th>Graduation Level</th>
+                <th>Date</th>
             </tr>
         </thead>
         <tbody>
@@ -65,20 +66,23 @@
                     <td>{{ exam.year }}</td>
                     <td>{{ exam.month }}</td>
                     <td>{{ exam.grad_level }}</td>
-                    <td><button type="submit">Assign Duty</button></td>
+                    <td>
+                        <input type="date" id="date_{{ exam.exam_id }}" name="date" required>
+                    </td>
+                    <td>
+                        <button type="button" onclick="assignDuty('{{ exam.exam_id }}')">Assign Duty</button>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
 
-
-
     <script>
         function assignDuty(examId) {
-            // Implement the logic to assign duty for the selected exam
-            console.log('Assign duty for exam with ID: ' + examId);
+            var selectedDate = document.getElementById('date_' + examId).value;
+            // Implement the logic to assign duty for the selected exam on the selected date
+            console.log('Assign duty for exam with ID: ' + examId + ' on date: ' + selectedDate);
         }
     </script>
-
 </body>
 </html>

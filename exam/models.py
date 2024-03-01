@@ -71,6 +71,7 @@ class room(models.Model):
 class dutyAllotment(models.Model):
     teacher_id=models.ForeignKey(teacherTable,on_delete=models.CASCADE)
     exam_id=models.ForeignKey(Exam,on_delete=models.CASCADE)
+    course = models.ForeignKey(Course,on_delete=models.CASCADE)
     date=models.DateField()
     room_id=models.ForeignKey(room,on_delete=models.CASCADE)
     
